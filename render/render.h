@@ -1,22 +1,22 @@
 #pragma once
 
-#include "libs/base/base.h"
-#include "libs/opengl/opengl.h"
+#include "base/base.h"
+#include "opengl/opengl.h"
 
-#include "libs/render/vector.h"
-#include "libs/render/matrix.h"
-#include "libs/render/matrixstack.h"
+#include "render/vector.h"
+#include "render/matrix.h"
+#include "render/matrixstack.h"
 
-#include "libs/render/uniform.h"
-#include "libs/render/shader.h"
-#include "libs/render/program.h"
+#include "render/uniform.h"
+#include "render/shader.h"
+#include "render/program.h"
 
-#include "libs/render/texture.h"
-#include "libs/render/texturesampler.h"
-#include "libs/render/textureunit.h"
+#include "render/texture.h"
+#include "render/texturesampler.h"
+#include "render/textureunit.h"
 
-#include "libs/render/fbo.h"
+#include "render/fbo.h"
 
-#include "libs/render/renderer.h"
+#include "render/renderer.h"
 
-#include "libs/render/pointcloud.h"
+#include "render/pointcloud.h"
