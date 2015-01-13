@@ -7,10 +7,10 @@ project "base"
 	configmap {
 		["VSTi Debug"]   = "Debug",
 		["VSTi Release"] = "Release",
-		["Debug Standalone"]   = "Debug",
-		["Release Standalone"] = "Release",
-		["Release Standalone Crinkler"] = "Release",
-		["Release Standalone Kkrunchy"] = "Release",
+		["Debug Standalone"]   = "Debug Standalone",
+		["Release Standalone"] = "Release Standalone",
+		["Release Standalone Crinkler"] = "Release Standalone",
+		["Release Standalone Kkrunchy"] = "Release Standalone",
 	}
 
 	pchheader "pch.h"
@@ -19,13 +19,17 @@ project "base"
 	files { "./datatypes/*.h", "./datatypes/*.cpp" }
 	files { "./math/*.h", "./math/*.cpp" }
 	files { "./util/*.h", "./util/*.cpp" }
-	files { "./pch.h", "./pch.cpp", "./base.h", "./config.h" }
+	files { "./pch.h", "./pch.cpp", "./base.h" }
 
-	filter "Debug"
+	filter "configurations:*Standalone"
+		defines { "STANDALONE" }
+	filter {}
+
+	filter "Debug*"
 		defines { "DEBUG" }
 		flags { "Symbols", "Maps" }
 		optimize "Off"
 
-	filter "Release"
+	filter "Release*"
 		defines { "NDEBUG" }
 		optimize "Size"

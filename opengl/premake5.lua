@@ -2,10 +2,10 @@ project "opengl"
 	kind "StaticLib"
 
 	configmap {
-		["Debug Standalone"]   = "Debug",
-		["Release Standalone"] = "Release",
-		["Release Standalone Crinkler"] = "Release",
-		["Release Standalone Kkrunchy"] = "Release",
+		["Debug Standalone"]   = "Debug Standalone",
+		["Release Standalone"] = "Release Standalone",
+		["Release Standalone Crinkler"] = "Release Standalone",
+		["Release Standalone Kkrunchy"] = "Release Standalone",
 	}
 
 	pchheader "pch.h"
@@ -14,11 +14,15 @@ project "opengl"
 	files { "./ogl/*.h" }
 	files { "./*.h", "./*.cpp" }
 
-	filter "Debug"
+	filter "configurations:*Standalone"
+		defines { "STANDALONE" }
+	filter {}
+
+	filter "Debug*"
 		defines { "DEBUG" }
 		flags { "Symbols", "Maps" }
 		optimize "Off"
 
-	filter "Release"
+	filter "Release*"
 		defines { "NDEBUG" }
 		optimize "Size"

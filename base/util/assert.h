@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef ENABLE_ZASSERTS
+#ifdef ENABLE_ZASSERT
 	#pragma warning(disable: 4793)
 	#pragma warning(disable : 4800)
 

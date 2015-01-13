@@ -12,6 +12,8 @@
 #include "emmintrin.h" // SSE 2
 #include "tmmintrin.h" // SSE 3.1
 
+#include "config.h" // this file controls ZENABLE* defines. Including project must ensure that such a file exists in path.
+
 #include "base/util/inline.h"
 #include "base/util/alloc.h"
 #include "base/util/align.h"
