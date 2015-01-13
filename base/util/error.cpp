@@ -14,7 +14,7 @@ void _zcriticalerror(const char* const str, ...)
 
 	va_list args;
 	va_start(args, str);
-	vsnprintf(buf, 2048-1, str, args);
+	wvsprintf(buf, str, args);
 	va_end(args);
 
 	MessageBoxA(NULL, buf, NULL, NULL);
@@ -26,7 +26,7 @@ void _zfatalerror(const char* const str, ...)
 
 	va_list args;
 	va_start(args, str);
-	vsnprintf(buf, 2048-1, str, args);
+	wvsprintf(buf, str, args);
 	va_end(args);
 
 	MessageBoxA(NULL, buf, NULL, NULL);

@@ -35,6 +35,7 @@
 #include "base/util/time.h"
 
 #include "base/util/assert.h"
+#include "base/util/error.h"
 #include "base/util/registry.h"
 
 #include "base/util/smartptr.h"

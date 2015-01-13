@@ -21,9 +21,8 @@ void vzmsg(const char* const str, va_list argp)
 
 	argp;
 	str;
-	vsnprintf(buf, kBufLen-1, str, argp);
+	wvsprintf(buf, str, argp);
 
 	OutputDebugStringA(buf);
 	OutputDebugStringA("\n");
-	printf("%s\n", buf);
 }
