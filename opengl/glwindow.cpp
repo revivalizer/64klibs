@@ -1,7 +1,5 @@
 #include "pch.h"
 #include "glwindow.h"
-#include "libs/imgui/types.h"
-#include "libs/imgui/event.h"
 
 // Much of this from Ferris' 4k framework, which takes a lot from iq
 
