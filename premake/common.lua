@@ -22,7 +22,7 @@ common.GenerateStandardSetup = function()
 end
 
 common.GenerateStandardDebugConfiguration = function()
-	filter "Debug"
+	filter "configurations:*Debug*"
 		defines { "DEBUG" }
 		flags { "Symbols", "Maps" }
 		optimize "Off"
@@ -31,9 +31,30 @@ common.GenerateStandardDebugConfiguration = function()
 end
 
 common.GenerateStandardReleaseConfiguration = function()
-	filter "Release"
+	filter "configurations:*Release*"
 		defines { "NDEBUG" }
 		optimize "Size"
+
+	filter {}
+end
+
+common.GenerateStandaloneConfiguration = function()
+	filter "configurations:*Standalone*"
+		defines { "STANDALONE" }
+
+	filter {}
+end
+
+common.GenerateCrinklerConfiguration = function()
+	filter "configurations:*Crinkler*"
+		linkoptions {"/CRINKLER /REPORT:crinkler.html /TRANSFORM:CALLS"}
+
+	filter {}
+end
+
+common.GenerateKkrunchyConfiguration = function()
+	filter "configurations:*Kkrunchy*"
+		-- needs something here
 
 	filter {}
 end
@@ -43,11 +64,17 @@ common.GenerateStandardConfigurations = function()
 	common.GenerateStandardReleaseConfiguration()
 end
 
+common.GenerateStandaloneConfigurations = function()
+	common.GenerateStandaloneConfiguration()
+	common.GenerateCrinklerConfiguration()
+	common.GenerateKkrunchyConfiguration()
+end
+
 common.NoStdLib = function()
 	flags { "NoBufferSecurityCheck", "NoExceptions", "NoManifest", "NoRTTI", "NoRuntimeChecks", "OmitDefaultLibrary" } 
 	buildoptions { "/wd4725 /wd4201" } -- 4725 is old warning for tan asm func
 	buildoptions { "/arch:IA32" } -- removes intrinsic SSE2 pow, sin etc
-	buildoptions { "/QIfist" }
+--	buildoptions { "/QIfist" }
 end
 
 common.NoStdLibLink = function()
